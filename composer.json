@@ -1,6 +1,6 @@
 {
     "name": "gos/parser",
-    "description": "",
+    "description": "Provide simple solution to parser common thing",
     "keywords": ["Parser", "Helper", "Transliterator", "Transformer"],
     "type": "library",
     "license": "Apache-2.0",
