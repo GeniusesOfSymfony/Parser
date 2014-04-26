@@ -12,7 +12,7 @@
          bootstrap="vendor/autoload.php"
 >
     <testsuites>
-        <testsuite name="Gos Cache Component Test Suite">
+        <testsuite name="Gos Parser Component Test Suite">
             <directory>./Tests/</directory>
         </testsuite>
     </testsuites>

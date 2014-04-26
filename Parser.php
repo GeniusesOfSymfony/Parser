@@ -63,15 +63,4 @@ class Parser
     {
         return Transliterator::unaccent($string);
     }
-
-    /**
-     * @param $namespace
-     * Extract bundle name from namespace
-     * @return string
-     */
-    public static function extractBundleName($namespace)
-    {
-        $buffer = explode('\\', $namespace);
-        return $buffer[0] . '\\' . $buffer[1] . '\\' . $buffer[1];
-    }
 } 
