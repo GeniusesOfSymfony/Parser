@@ -16,6 +16,7 @@ class Parser
          * This is a part of symfony2 | We duplicate it to avoid symfony2 dependency, if he is split, we will use it
          * as dependency like Doctrine::Urlize with Behat
          */
+
         return strtr(ucwords(strtr($string, array('_' => ' ', '.' => '_ ', '\\' => '_ '))), array(' ' => ''));
     }
 
@@ -46,7 +47,7 @@ class Parser
             '\\1_\\2'
         );
 
-        if(true === $convertSpace){
+        if (true === $convertSpace) {
             $lookingFor[] = '/\s+/';
             $by[] = '_';
         }
@@ -63,4 +64,4 @@ class Parser
     {
         return Transliterator::unaccent($string);
     }
-} 
+}

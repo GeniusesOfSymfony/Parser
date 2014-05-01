@@ -47,4 +47,4 @@ class ParserTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('FooBar', Parser::camelize('fooBar'));
 //        $this->assertEquals('FooBar', Parser::camelize('FOO BAR'));
     }
-} 
+}
