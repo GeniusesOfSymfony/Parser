@@ -2,9 +2,33 @@
 namespace Gos\Component\Parser;
 
 use Behat\Transliterator\Transliterator;
+use Symfony\Component\Yaml\Parser as YamlParser;
 
 class Parser
 {
+    /**
+     * @param      $filePath
+     * @param null $path
+     *
+     * @return mixed
+     */
+    public static function yaml($filePath, $path = null)
+    {
+        $parser = new YamlParser();
+
+        $buffer = $parser->parse(file_get_contents($filePath));
+
+        if (null === $path) {
+            return $buffer;
+        }
+
+        foreach (explode('.', $path) as $path) {
+            $buffer = $buffer[$path];
+        }
+
+        return $buffer;
+    }
+
     /**
      * @param $string
      * Camelize a string
