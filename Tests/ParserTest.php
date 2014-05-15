@@ -5,6 +5,27 @@ use Gos\Component\Parser\Parser;
 
 class ParserTest extends \PHPUnit_Framework_TestCase
 {
+    public function testYaml()
+    {
+        $data = Parser::yaml(__DIR__.'/Fixture/TestYaml.yml');
+
+        $this->assertEquals(array(
+            'foo' => array(
+                'bar' => array(1,2,3),
+                'baz' => array(4,5,6)
+            )
+        ), $data);
+    }
+
+    public function testYamlWithPath()
+    {
+        $data = Parser::yaml(__DIR__.'/Fixture/TestYaml.yml', 'foo.bar');
+        $this->assertEquals(array(1,2,3), $data);
+
+        $data = Parser::yaml(__DIR__.'/Fixture/TestYaml.yml', 'foo.baz');
+        $this->assertEquals(array(4,5,6), $data);
+    }
+
     public function stringToSlugProvider()
     {
         return array(
@@ -45,6 +66,6 @@ class ParserTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('FooBar', Parser::camelize('Foo Bar'));
         $this->assertEquals('FooBar', Parser::camelize('fooBar'));
         $this->assertEquals('FooBar', Parser::camelize('fooBar'));
-//        $this->assertEquals('FooBar', Parser::camelize('FOO BAR'));
+//        $this->assertEquals('FooBar', Parser::camelize('FOO BAR')); Not supported yet
     }
 }
