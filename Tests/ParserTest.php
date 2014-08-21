@@ -9,30 +9,30 @@ class ParserTest extends \PHPUnit_Framework_TestCase
     {
         $data = Parser::yaml(__DIR__.'/Fixture/TestYaml.yml');
 
-        $this->assertEquals(array(
-            'foo' => array(
-                'bar' => array(1,2,3),
-                'baz' => array(4,5,6)
-            )
-        ), $data);
+        $this->assertEquals([
+            'foo' => [
+                'bar' => [1,2,3],
+                'baz' => [4,5,6]
+            ]
+        ], $data);
     }
 
     public function testYamlWithPath()
     {
         $data = Parser::yaml(__DIR__.'/Fixture/TestYaml.yml', 'foo.bar');
-        $this->assertEquals(array(1,2,3), $data);
+        $this->assertEquals([1,2,3], $data);
 
         $data = Parser::yaml(__DIR__.'/Fixture/TestYaml.yml', 'foo.baz');
-        $this->assertEquals(array(4,5,6), $data);
+        $this->assertEquals([4,5,6], $data);
     }
 
     public function stringToSlugProvider()
     {
-        return array(
-            array('Foo bar 123@34|(){}[]#~&=-+*%!:.;?,"'),
-            array('john-doe'),
-            array('&nbsp <html><script>alert(\'lol\');</script></html>')
-        );
+        return [
+            ['Foo bar 123@34|(){}[]#~&=-+*%!:.;?,"'],
+            ['john-doe'],
+            ['&nbsp <html><script>alert(\'lol\');</script></html>']
+        ];
     }
 
     /**
